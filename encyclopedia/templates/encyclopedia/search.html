@@ -1,0 +1,18 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+Search: {{query}}
+{% endblock %}
+
+{% block body %}
+    {% if related %}
+        <h4> Search Results for <mark>"{{query}}"</mark>: </h4>
+    {% endif %}
+    <ul>
+    {% for result in related %}
+        <li><a href=/wiki/{{result}}>{{ result }} </a> </li> 
+    {% empty %}
+        <h4>No results found for <mark>"{{query}}"</mark>!</h4>
+    {% endfor %}
+    </ul>
+{% endblock %}
